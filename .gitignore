@@ -1,0 +1,23 @@
+# Virtual environment
+venv/
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Generated model
+models/*.pkl
+
+# Large/local data
+data/*.csv
+
+# Streamlit
+.streamlit/secrets.toml
