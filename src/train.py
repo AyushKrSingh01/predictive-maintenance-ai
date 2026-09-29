@@ -19,16 +19,10 @@ from sklearn.metrics import (
 )
 
 
-# ==========================================
-# 1. LOAD DATA
-# ==========================================
 
 df = pd.read_csv("data/ai4i2020.csv")
 
 
-# ==========================================
-# 2. FEATURES AND TARGET
-# ==========================================
 
 features = [
     "Type",
@@ -45,10 +39,6 @@ X = df[features]
 y = df[target]
 
 
-# ==========================================
-# 3. TRAIN / TEST SPLIT
-# ==========================================
-
 X_train, X_test, y_train, y_test = train_test_split(
     X,
     y,
@@ -58,9 +48,6 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 
-# ==========================================
-# 4. PREPROCESSING
-# ==========================================
 
 categorical_features = ["Type"]
 
@@ -88,9 +75,6 @@ preprocessor = ColumnTransformer(
 )
 
 
-# ==========================================
-# 5. DEFINE MODELS
-# ==========================================
 
 models = {
 
@@ -114,9 +98,7 @@ models = {
 }
 
 
-# ==========================================
-# 6. TRAIN AND COMPARE
-# ==========================================
+
 
 results = []
 
@@ -168,9 +150,6 @@ for name, model in models.items():
     trained_models[name] = pipeline
 
 
-# ==========================================
-# 7. DISPLAY RESULTS
-# ==========================================
 
 results_df = pd.DataFrame(results)
 
@@ -191,9 +170,7 @@ print(
 )
 
 
-# ==========================================
-# 8. SELECT MODEL BASED ON F1
-# ==========================================
+
 
 best_model_name = results_df.loc[
     results_df["F1"].idxmax(),
@@ -206,9 +183,7 @@ print("\nBest model based on F1:")
 print(best_model_name)
 
 
-# ==========================================
-# 9. CONFUSION MATRIX
-# ==========================================
+
 
 best_predictions = best_model.predict(X_test)
 
@@ -216,9 +191,7 @@ print("\nConfusion Matrix:")
 print(confusion_matrix(y_test, best_predictions))
 
 
-# ==========================================
-# 10. SAVE BEST MODEL
-# ==========================================
+
 
 joblib.dump(
     best_model,

@@ -4,13 +4,11 @@ import seaborn as sns
 
 df = pd.read_csv("data/ai4i2020.csv")
 
-# Create output directory
+
 import os
 os.makedirs("outputs", exist_ok=True)
 
-# -----------------------------
-# 1. Failure Distribution
-# -----------------------------
+
 plt.figure(figsize=(6, 4))
 
 sns.countplot(
@@ -27,9 +25,7 @@ plt.savefig("outputs/failure_distribution.png")
 plt.close()
 
 
-# -----------------------------
-# 2. Torque vs Failure
-# -----------------------------
+
 plt.figure(figsize=(7, 5))
 
 sns.boxplot(
@@ -47,9 +43,7 @@ plt.savefig("outputs/torque_vs_failure.png")
 plt.close()
 
 
-# -----------------------------
-# 3. Rotational Speed vs Failure
-# -----------------------------
+
 plt.figure(figsize=(7, 5))
 
 sns.boxplot(
@@ -67,9 +61,7 @@ plt.savefig("outputs/speed_vs_failure.png")
 plt.close()
 
 
-# -----------------------------
-# 4. Tool Wear vs Failure
-# -----------------------------
+
 plt.figure(figsize=(7, 5))
 
 sns.boxplot(
@@ -87,9 +79,7 @@ plt.savefig("outputs/tool_wear_vs_failure.png")
 plt.close()
 
 
-# -----------------------------
-# 5. Correlation Matrix
-# -----------------------------
+
 numeric_columns = [
     "Air temperature [K]",
     "Process temperature [K]",

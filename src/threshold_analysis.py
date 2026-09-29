@@ -9,7 +9,7 @@ from sklearn.metrics import (
     confusion_matrix
 )
 
-# Load dataset
+
 df = pd.read_csv("data/ai4i2020.csv")
 
 features = [
@@ -26,7 +26,7 @@ target = "Machine failure"
 X = df[features]
 y = df[target]
 
-# Same split used during training
+
 X_train, X_test, y_train, y_test = train_test_split(
     X,
     y,
@@ -35,12 +35,12 @@ X_train, X_test, y_train, y_test = train_test_split(
     stratify=y
 )
 
-# Load trained Random Forest pipeline
+
 model = joblib.load(
     "models/predictive_maintenance_model.pkl"
 )
 
-# Get probability of failure
+
 failure_probability = model.predict_proba(X_test)[:, 1]
 
 thresholds = [0.50, 0.45, 0.40, 0.35, 0.30, 0.25, 0.20]

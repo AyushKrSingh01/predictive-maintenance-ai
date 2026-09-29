@@ -13,8 +13,7 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Generated model
-models/*.pkl
+
 
 # Large/local data
 data/*.csv

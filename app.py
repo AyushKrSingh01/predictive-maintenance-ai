@@ -3,9 +3,6 @@ import pandas as pd
 import joblib
 
 
-# ==========================================
-# Page Configuration
-# ==========================================
 
 st.set_page_config(
     page_title="Predictive Maintenance AI",
@@ -14,9 +11,6 @@ st.set_page_config(
 )
 
 
-# ==========================================
-# Load Model
-# ==========================================
 
 model = joblib.load(
     "models/predictive_maintenance_model.pkl"
@@ -25,9 +19,6 @@ model = joblib.load(
 THRESHOLD = 0.45
 
 
-# ==========================================
-# Header
-# ==========================================
 
 st.title("⚙️ Predictive Maintenance AI")
 
@@ -43,9 +34,6 @@ st.markdown(
 st.divider()
 
 
-# ==========================================
-# Machine Parameters
-# ==========================================
 
 st.subheader("🔧 Machine Parameters")
 
@@ -106,9 +94,6 @@ with col3:
 st.divider()
 
 
-# ==========================================
-# Prediction
-# ==========================================
 
 if st.button(
     "🔍 Predict Machine Failure",
@@ -125,7 +110,7 @@ if st.button(
         "Tool wear [min]": [tool_wear]
     })
 
-    # Get probability of failure
+    
     failure_probability = model.predict_proba(
         input_data
     )[0][1]
@@ -135,9 +120,6 @@ if st.button(
     )
 
 
-    # ======================================
-    # Result
-    # ======================================
 
     st.subheader("📊 Prediction Result")
 
@@ -174,9 +156,6 @@ if st.button(
     )
 
 
-    # ======================================
-    # Input Summary
-    # ======================================
 
     st.subheader("📋 Input Summary")
 
@@ -215,9 +194,6 @@ if st.button(
         )
 
 
-# ==========================================
-# Model Information
-# ==========================================
 
 st.divider()
 
@@ -278,9 +254,6 @@ st.markdown(
     """
 )
 
-# ==========================================
-# Feature Importance
-# ==========================================
 
 st.divider()
 

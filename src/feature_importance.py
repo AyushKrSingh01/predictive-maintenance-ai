@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import joblib
 
-# Load dataset
+
 df = pd.read_csv("data/ai4i2020.csv")
 
-# Same features used during training
+
 features = [
     "Type",
     "Air temperature [K]",
@@ -16,21 +16,21 @@ features = [
     "Tool wear [min]"
 ]
 
-# Load trained pipeline
+
 pipeline = joblib.load(
     "models/predictive_maintenance_model.pkl"
 )
 
-# Get the Random Forest model
+
 model = pipeline.named_steps["model"]
 
-# Get preprocessing step
+
 preprocessor = pipeline.named_steps["preprocessor"]
 
-# Get feature names after one-hot encoding
+
 feature_names = preprocessor.get_feature_names_out()
 
-# Get feature importance
+
 importances = model.feature_importances_
 
 importance_df = pd.DataFrame({
